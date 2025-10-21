@@ -8,6 +8,6 @@ object height:
     case Location(_, _, shape) => 1 + height(shape)
     case Group(shapes*) =>
       if shapes.isEmpty then 1
-      else 1 + shapes.foldLeft(0)((maxHeight, shape) => math.max(maxHeight, apply(shape)))
+      else 1 + shapes.map(apply).max
     case _ => 1
 end height
